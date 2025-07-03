@@ -13,7 +13,8 @@ $ExcludedFiles = @(
     "*.user", "*.suo", "*.sln.docstates", "*.userprefs",
     "*.pidb", "*.userprefs", "*.ide", "*.class", "*.o",
     "*.so", "*.dylib", "*.a", "*.lib", "*.pyc", "*.pyo",
-    ".DS_Store", "Thumbs.db", "desktop.ini"
+    ".DS_Store", "Thumbs.db", "desktop.ini", 
+    "*.jpg", "*.png", "*.jpeg", "*.txt"
 )
 
 function Test-ShouldExcludeDirectory
@@ -79,12 +80,12 @@ function Get-ProjectStructure
                     $result += "$indent$($item.Name)/"
                     $result += Get-ProjectStructure -Path $item.FullName -Depth ($Depth + 1)
                 }
-                else
+            }
+            else
+            {
+                if (-not (Test-ShouldExcludeFile $item.Name)) 
                 {
-                    if (-not (Test-ShouldExcludeFile $item.Name)) 
-                    {
-                        $result += "$indent$($item.Name)"
-                    }
+                    $result += "$indent$($item.Name)"
                 }
             }
         }
