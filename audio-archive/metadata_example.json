@@ -1,0 +1,17 @@
+{
+    "outputBasePath": "C:/Users/username/Documents/ChatTranscripts",
+    "downloadsPath": "C:/Users/username/Downloads/",
+    "languages": [
+        {
+            "name": "kazakh",
+            "isActive": true,
+            "model": "medium"
+        },
+        {
+            "name": "english",
+            "isActive": false,
+            "model": "small"
+        }
+    ],
+    "outputFormat": "txt"
+}
